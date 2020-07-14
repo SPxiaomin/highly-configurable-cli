@@ -1,0 +1,9 @@
+{
+  "name": "@highly-configurable/cli-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@highly-configurable/cli-shared-utils": "^1.0.0"
+  }
+}

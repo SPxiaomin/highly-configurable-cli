@@ -1,0 +1,9 @@
+{
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "packages": [
+    "packages/@highly-configurable/*",
+    "projects/*"
+  ],
+  "version": "independent"
+}
