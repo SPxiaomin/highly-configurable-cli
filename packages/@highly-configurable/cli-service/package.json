@@ -5,5 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "@highly-configurable/cli-shared-utils": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=12.2.0"
   }
 }
