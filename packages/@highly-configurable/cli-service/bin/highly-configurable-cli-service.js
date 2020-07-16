@@ -12,3 +12,10 @@ if (!semver.satisfies(process.version, requiredVersion)) {
   process.exit(1);
 }
 
+const rawArgv = process.argv.slice(2);
+const args = require('minimist')(rawArgv);
+const command = args._[0];
+
+const Service = require('../Service');
+const service = new Service(process.cwd());
+service.run(command, args, rawArgv);

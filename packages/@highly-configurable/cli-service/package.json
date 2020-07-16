@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@highly-configurable/cli-shared-utils": "^1.0.0"
+    "@highly-configurable/cli-shared-utils": "^1.0.0",
+    "minimist": "^1.2.5"
   },
   "engines": {
     "node": ">=12.2.0"

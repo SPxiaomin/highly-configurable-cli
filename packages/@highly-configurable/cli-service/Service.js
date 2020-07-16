@@ -3,18 +3,22 @@
  */
 
 module.exports = class Service {
-  constructor() {
+  constructor(context) {
+    this.context = context;
+
     this.webpackChainFns = [];
   }
 
   // init & run command
   run() {
+    this.init();
+
 
   }
 
-  // init mode & base config & 
+  // load user option & register command
   init() {
-
+    
   }
 
   chainWebapck(fn) {
