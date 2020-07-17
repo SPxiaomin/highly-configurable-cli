@@ -2,11 +2,13 @@
  * @description core service for run command
  */
 
+const path = require('path');
+const fs = require('fs');
+
 module.exports = class Service {
   constructor(context) {
     this.context = context;
-
-    this.webpackChainFns = [];
+    this.projectOptions = null;
   }
 
   // init & run command
@@ -18,14 +20,13 @@ module.exports = class Service {
 
   // load user option & register command
   init() {
-    
+    this.projectOptions = this.loadUserOptions();
   }
 
-  chainWebapck(fn) {
-    this.webpackChainFns.push(fn);
-  }
-
-  resolveWebpack() {
-
+  loadUserOptions() {
+    const configPath = path.resolve(this.context, './vue.config.js');
+    if (fs.existsSync(configPath)) {
+      
+    }
   }
 }
