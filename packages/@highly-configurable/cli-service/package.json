@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@highly-configurable/cli-shared-utils": "^1.0.0",
+    "debug": "^4.1.1",
     "minimist": "^1.2.5"
   },
   "engines": {

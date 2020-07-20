@@ -4,6 +4,8 @@
 
 const path = require('path');
 const fs = require('fs');
+const Module = require('module');
+const { validate, error } = require('@highly-configurable/cli-shared-utils');
 
 module.exports = class Service {
   constructor(context) {
@@ -24,9 +26,16 @@ module.exports = class Service {
   }
 
   loadUserOptions() {
-    const configPath = path.resolve(this.context, './vue.config.js');
+    const configPath = path.resolve(this.context, './highly-configurable.config.js');
+    let fileConfig;
     if (fs.existsSync(configPath)) {
-      
+      fileConfig = Module.createRequire(path.resolve(this.context, 'package.json'))('./highly-configurable.config.js');
+
+      validate(fileConfig, (message) => {
+        error(`Invalid options in ${chalk.bold('highly-configurable.config.js')}: ${message}`);
+      });
     }
   }
 }
+
+new Service().run();
