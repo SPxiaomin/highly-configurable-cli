@@ -19,10 +19,18 @@ module.exports = class Service {
   }
 
   // init & run command
-  run() {
+  run(name, args = {}, rawArgs = []) {
     this.init();
 
+    let command = this.commands[name];
 
+    if (!command && name) {
+      error(`command "${name}" does not exist.`);
+      process.exit(1);
+    }
+
+    const { fn } = command;
+    return fn(args, rawArgs);
   }
 
   // load user option & register command
@@ -47,6 +55,24 @@ module.exports = class Service {
   }
 
   registerCommands() {
+    const commands = [
+      './commands/serve',
+      // './commands/build',
+      // './commands/inspect',
+      // './commands/help',
+    ];
 
+    commands.forEach((command) => {
+      const {
+        name,
+        help,
+        fn,
+      } = require(command)(this.projectOptions);
+
+      this.commands[name] = {
+        fn, 
+        help,
+      };
+    });
   }
 }
