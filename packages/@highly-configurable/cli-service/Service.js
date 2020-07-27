@@ -12,10 +12,11 @@ module.exports = class Service {
   constructor(context) {
     // the root working dir
     this.context = context;
-    // custom user options
-    this.projectOptions = null;
     // cli service commands
     this.commands = {};
+
+    // custom user options
+    this.projectOptions = null;
   }
 
   // init & run command
@@ -59,7 +60,6 @@ module.exports = class Service {
       './commands/serve',
       // './commands/build',
       // './commands/inspect',
-      // './commands/help',
     ];
 
     commands.forEach((command) => {
