@@ -2,10 +2,11 @@
  * @description entry / output / html / static related
  */
 
-module.exports = (webpackConfig, options) => {
+module.exports = (webpackConfig, service) => {
   webpackConfig
-    .entry('')
-      .add()
+    .context(service.context)
+    .entry('app')
+      .add('./src/main.js')
       .end()
 };
 
