@@ -6,6 +6,7 @@
   "dependencies": {
     "@highly-configurable/cli-shared-utils": "^1.0.0",
     "debug": "^4.1.1",
+    "html-webpack-plugin": "^4.3.0",
     "minimist": "^1.2.5"
   },
   "engines": {

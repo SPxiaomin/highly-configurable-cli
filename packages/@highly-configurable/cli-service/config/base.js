@@ -3,8 +3,10 @@
  */
 
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (webpackConfig, service) => {
+  // entry & output
   webpackConfig
     .context(service.context)
     .entry('app')
@@ -13,6 +15,25 @@ module.exports = (webpackConfig, service) => {
     .output
       .filename('[name].[hash].js')
       .path(path.resolve(service.context, './dist'))
-      .end()
+      .end();
+
+  // html
+  webpackConfig
+    .plugin('html')
+    .use(HtmlWebpackPlugin, [{
+      filename: 'app.html',
+      template: path.resolve(service.context, './public/index.html'),
+    }]);
+
+  // static assets
+  webpackConfig.module
+    .rule('image')
+      .test(/\.(png|jpe?g|gif)$/i)
+      .use('url-loader')
+        .loader('url-loader')
+        .options({
+          limit: 8192,
+        });
+
 };
 

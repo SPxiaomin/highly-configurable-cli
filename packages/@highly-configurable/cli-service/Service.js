@@ -21,7 +21,7 @@ module.exports = class Service {
 
   // init & run command
   run(name, args = {}, rawArgs = []) {
-    this.init();
+    this.init(name);
 
     let command = this.commands[name];
 
@@ -35,10 +35,21 @@ module.exports = class Service {
   }
 
   // load user option & register command
-  init() {
+  init(name) {
+    this.setEnv(name);
+
     this.projectOptions = this.loadUserOptions();
 
     this.registerCommands();
+  }
+
+  setEnv() {
+    if (!process.env.NODE_ENV) {
+      process.env.NODE_ENV = {
+        serve: 'development',
+        build: 'production',
+      }[name];
+    }
   }
 
   loadUserOptions() {
