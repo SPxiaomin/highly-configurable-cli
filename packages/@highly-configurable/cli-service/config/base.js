@@ -30,10 +30,11 @@ module.exports = (webpackConfig, service) => {
     .rule('image')
       .test(/\.(png|jpe?g|gif)$/i)
       .use('url-loader')
-        .loader('url-loader')
+        .loader(require.resolve('url-loader'))
         .options({
           limit: 8192,
         });
 
+  
 };
 
