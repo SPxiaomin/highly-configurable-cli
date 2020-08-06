@@ -35,6 +35,15 @@ module.exports = (webpackConfig, service) => {
           limit: 8192,
         });
 
+  // resolve extensions
+  webpackConfig.resolve
+    .extensions
+    .merge(['.tsx', '.ts', '.js']);
   
+  // resolve alias
+  webpackConfig.resolve
+    .alias
+    .set('@', path.resolve(service.context, 'src'));
+
 };
 
