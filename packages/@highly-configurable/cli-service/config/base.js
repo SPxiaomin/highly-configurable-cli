@@ -45,5 +45,11 @@ module.exports = (webpackConfig, service) => {
     .alias
     .set('@', path.resolve(service.context, 'src'));
 
+  // externals
+  webpackConfig.externals({
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    axios: 'axios',
+  });
 };
 
