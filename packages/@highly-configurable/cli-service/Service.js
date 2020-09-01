@@ -7,6 +7,7 @@ const fs = require('fs');
 const Module = require('module');
 const { validate, error, chalk } = require('@highly-configurable/cli-shared-utils');
 const debug = require('debug');
+const Config = require('webpack-chain');
 
 module.exports = class Service {
   constructor(context) {
@@ -31,7 +32,7 @@ module.exports = class Service {
     }
 
     const { fn } = command;
-    return fn(args, rawArgs);
+    return fn(args, rawArgs, this);
   }
 
   // load user option & register command
@@ -43,7 +44,7 @@ module.exports = class Service {
     this.registerCommands();
   }
 
-  setEnv() {
+  setEnv(name) {
     if (!process.env.NODE_ENV) {
       process.env.NODE_ENV = {
         serve: 'development',
@@ -85,5 +86,14 @@ module.exports = class Service {
         help,
       };
     });
+  }
+
+  resolveWebpackConfig() {
+    const chainableConfig = new Config();
+    require('./config/base.js')(chainableConfig, this);
+
+    chainableConfig.mode('development');
+
+    return chainableConfig.toConfig();
   }
 }

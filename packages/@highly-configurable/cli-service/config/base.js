@@ -51,5 +51,41 @@ module.exports = (webpackConfig, service) => {
     'react-dom': 'ReactDOM',
     axios: 'axios',
   });
+
+  // js
+  webpackConfig.module
+    .rule('js')
+      .test(/\.tsx?$/)
+      .use('babel-loader')
+        .loader(require.resolve('babel-loader'));
+
+  webpackConfig
+    .plugin('fork-ts-checker')
+    .use(require('fork-ts-checker-webpack-plugin'), [{
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+      eslint: {
+        files: path.resolve(service.context, './src/**/*'),
+      },
+    }]);
+
+  // css
+  webpackConfig.module
+    .rule('css')
+      .test(/\.css$/)
+      .use('style-loader')
+        .loader(require.resolve('style-loader'))
+        .end()
+      .use('css-loader')
+        .loader(require.resolve('css-loader'))
+        .end()
+      .use('postcss-loader')
+        .loader(require.resolve('postcss-loader'))
+        .end();
+
 };
 

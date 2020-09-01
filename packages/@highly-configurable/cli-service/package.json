@@ -3,11 +3,29 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "highly-configurable-cli-service": "bin/highly-configurable-cli-service.js"
+  },
   "dependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
     "@highly-configurable/cli-shared-utils": "^1.0.0",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
     "debug": "^4.1.1",
+    "eslint": "^7.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fork-ts-checker-webpack-plugin": "^5.1.0",
     "html-webpack-plugin": "^4.3.0",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "typescript": "^4.0.2",
+    "webpack-chain": "^6.5.1"
   },
   "engines": {
     "node": ">=12.2.0"
