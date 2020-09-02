@@ -92,7 +92,15 @@ module.exports = class Service {
     const chainableConfig = new Config();
     require('./config/base.js')(chainableConfig, this);
 
-    chainableConfig.mode('development');
+    switch (process.env.NODE_ENV) {
+      case 'development':
+        chainableConfig.mode('development');
+        require('./config/dev.js')(chainableConfig, this);
+        break;
+
+      case 'production':
+        break;
+    }
 
     return chainableConfig.toConfig();
   }

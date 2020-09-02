@@ -69,7 +69,10 @@ module.exports = (webpackConfig, service) => {
         },
       },
       eslint: {
-        files: path.resolve(service.context, './src/**/*'),
+        files: [
+          path.resolve(service.context, './src/**/*.ts'),
+          path.resolve(service.context, './src/**/*.tsx'),
+        ]
       },
     }]);
 
@@ -86,6 +89,5 @@ module.exports = (webpackConfig, service) => {
       .use('postcss-loader')
         .loader(require.resolve('postcss-loader'))
         .end();
-
 };
 

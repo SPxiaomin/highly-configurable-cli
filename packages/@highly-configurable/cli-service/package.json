@@ -17,6 +17,7 @@
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "autoprefixer": "^9.8.6",
     "debug": "^4.1.1",
     "eslint": "^7.8.0",
     "eslint-config-prettier": "^6.11.0",
@@ -24,6 +25,7 @@
     "fork-ts-checker-webpack-plugin": "^5.1.0",
     "html-webpack-plugin": "^4.3.0",
     "minimist": "^1.2.5",
+    "precss": "^4.0.0",
     "typescript": "^4.0.2",
     "webpack-chain": "^6.5.1"
   },

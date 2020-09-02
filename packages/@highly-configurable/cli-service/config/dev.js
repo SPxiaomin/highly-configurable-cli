@@ -2,6 +2,6 @@
  * @description dev related
  */
 
-module.exports = (api, options) => {
-
+module.exports = (webpackConfig, service) => {
+  webpackConfig.devtool('inline-source-map');
 };
