@@ -70,7 +70,7 @@ module.exports = class Service {
   registerCommands() {
     const commands = [
       './commands/serve',
-      // './commands/build',
+      './commands/build',
       // './commands/inspect',
     ];
 
@@ -94,11 +94,11 @@ module.exports = class Service {
 
     switch (process.env.NODE_ENV) {
       case 'development':
-        chainableConfig.mode('development');
         require('./config/dev.js')(chainableConfig, this);
         break;
 
       case 'production':
+        require('./config/prod.js')(chainableConfig, this);
         break;
     }
 

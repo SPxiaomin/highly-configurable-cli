@@ -3,21 +3,19 @@ module.exports = (options) => {
     name: 'serve',
     help: {},
     fn: (args, rawArgs, service) => {
-      const path = require('path');
       const webpack = require('webpack');
       const WebpackDevServer = require('webpack-dev-server');
 
       const webpackConfig = service.resolveWebpackConfig();
-      new WebpackDevServer(webpack(webpackConfig), {
+      const options = {
         publicPath: webpackConfig.output
           ? webpackConfig.output.publicPath
-          : '/static',
+          : '',
         hot: true,
-        compress: true,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-      }).listen(7000);
+      };
+
+      WebpackDevServer.addDevServerEntrypoints(webpackConfig, options);
+      new WebpackDevServer(webpack(webpackConfig), options).listen(7000);
     },
   };
 };
