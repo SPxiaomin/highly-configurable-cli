@@ -14,11 +14,11 @@ module.exports = (options) => {
 
         process.stdout.write(
           `${stats.toString({
-            colors: true,
-            modules: false,
-            children: false,
-            chunks: false,
-            chunkModules: false,
+              colors: true,
+              modules: false,
+              children: false,
+              chunks: false,
+              chunkModules: false,
           })}\n`,
         );
       });

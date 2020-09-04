@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const scheme = Joi.object({
   publicPath: Joi.string().allow(''),
-  filenameHashing: Joi.boolean(),
+  chainWebpack: Joi.func().arity(1),
 });
 
 exports.validate = (object, callback) => {

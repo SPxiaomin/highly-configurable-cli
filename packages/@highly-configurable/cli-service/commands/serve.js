@@ -7,15 +7,15 @@ module.exports = (options) => {
       const WebpackDevServer = require('webpack-dev-server');
 
       const webpackConfig = service.resolveWebpackConfig();
-      const options = {
+      const hotOptions = {
         publicPath: webpackConfig.output
           ? webpackConfig.output.publicPath
           : '',
         hot: true,
       };
 
-      WebpackDevServer.addDevServerEntrypoints(webpackConfig, options);
-      new WebpackDevServer(webpack(webpackConfig), options).listen(7000);
+      WebpackDevServer.addDevServerEntrypoints(webpackConfig, hotOptions);
+      new WebpackDevServer(webpack(webpackConfig), hotOptions).listen(7000);
     },
   };
 };

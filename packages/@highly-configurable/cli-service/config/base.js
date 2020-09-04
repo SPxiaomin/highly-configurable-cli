@@ -17,6 +17,12 @@ module.exports = (webpackConfig, service) => {
       .path(path.resolve(service.context, './dist'))
       .end();
 
+  if (service.projectOptions && service.projectOptions.publicPath) {
+    webpackConfig
+      .output
+      .publicPath(service.projectOptions.publicPath);
+  }
+
   // html
   webpackConfig
     .plugin('html')

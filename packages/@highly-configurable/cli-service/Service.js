@@ -22,7 +22,7 @@ module.exports = class Service {
 
   // init & run command
   run(name, args = {}, rawArgs = []) {
-    this.init(name);
+    this.init(name, args);
 
     let command = this.commands[name];
 
@@ -36,19 +36,25 @@ module.exports = class Service {
   }
 
   // load user option & register command
-  init(name) {
-    this.setEnv(name);
+  init(name, args) {
+    this.setEnv(name, args);
 
     this.projectOptions = this.loadUserOptions();
 
     this.registerCommands();
   }
 
-  setEnv(name) {
+  setEnv(name, args) {
     if (!process.env.NODE_ENV) {
+      if (args.mode) {
+        process.env.NODE_ENV = args.mode;
+        return;
+      }
+
       process.env.NODE_ENV = {
         serve: 'development',
         build: 'production',
+        inspect: 'development',
       }[name];
     }
   }
@@ -56,6 +62,7 @@ module.exports = class Service {
   loadUserOptions() {
     const configPath = path.resolve(this.context, './highly-configurable.config.js');
     let fileConfig;
+
     if (fs.existsSync(configPath)) {
       // fileConfig = Module.createRequire(path.resolve(this.context, 'package.json'))('./highly-configurable.config.js');
       fileConfig = require(configPath);
@@ -65,6 +72,8 @@ module.exports = class Service {
         error(`Invalid options in ${chalk.bold('highly-configurable.config.js')}: ${message}`);
       });
     }
+
+    return fileConfig;
   }
 
   registerCommands() {
@@ -92,6 +101,7 @@ module.exports = class Service {
     const chainableConfig = new Config();
     require('./config/base.js')(chainableConfig, this);
 
+    // env related config overwrite
     switch (process.env.NODE_ENV) {
       case 'development':
         require('./config/dev.js')(chainableConfig, this);
@@ -101,6 +111,9 @@ module.exports = class Service {
         require('./config/prod.js')(chainableConfig, this);
         break;
     }
+
+    // user custom config overwrite
+    this.projectOptions.chainWebpack(chainableConfig);
 
     return chainableConfig.toConfig();
   }
