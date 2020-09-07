@@ -80,7 +80,7 @@ module.exports = class Service {
     const commands = [
       './commands/serve',
       './commands/build',
-      // './commands/inspect',
+      './commands/inspect',
     ];
 
     commands.forEach((command) => {
