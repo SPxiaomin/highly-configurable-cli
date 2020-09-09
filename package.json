@@ -7,15 +7,11 @@
   "author": "gujunmin <gujunmin@bytedance.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "lerna run dev --stream",
-    "beta": "lerna run beta --stream",
-    "build": "lerna run build --stream",
-    "test:client": "lerna run test --stream --scope @pattern/editor",
-    "test:server": "lerna run test:server --stream --scope @pattern/server",
-    "test:server:rpc": "lerna run test:server:rpc --stream --scope @pattern/server --"
+    "test": "node scripts/test.js"
   },
   "workspaces": [
     "packages/@highly-configurable/*",
+    "packages/test/*",
     "projects/*"
   ],
   "devDependencies": {

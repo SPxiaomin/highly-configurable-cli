@@ -3,6 +3,7 @@
   "useWorkspaces": true,
   "packages": [
     "packages/@highly-configurable/*",
+    "packages/test/*",
     "projects/*"
   ],
   "version": "independent"

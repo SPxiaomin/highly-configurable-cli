@@ -1,0 +1,11 @@
+.title {
+  color: red;
+  display: flex;
+  flex-direction: row;
+}
+
+  .title .bbb {
+    color: blue;
+  }
+
+/*# sourceMappingURL=app.7fd8ed37890cec9ab3c1.css.map*/

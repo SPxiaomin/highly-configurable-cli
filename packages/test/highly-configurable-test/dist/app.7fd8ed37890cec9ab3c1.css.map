@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///src/index.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,aAAa;EACb,mBAAmB;AAKrB;;EAHE;IACE,WAAW;EACb,C","file":"app.7fd8ed37890cec9ab3c1.css","sourcesContent":[".title {\n  color: red;\n  display: flex;\n  flex-direction: row;\n\n  .bbb {\n    color: blue;\n  }\n}"],"sourceRoot":""}
