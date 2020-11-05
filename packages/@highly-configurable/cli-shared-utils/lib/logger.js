@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const readline = require('readline');
 
 function format(label, msg) {
   return msg
@@ -19,5 +20,15 @@ exports.error = (msg) => {
 
   if (msg instanceof Error) {
     console.error(msg.stack);
+  }
+};
+
+exports.clearConsole = (title) => {
+  if (process.stdout.isTTY) {
+    const blank = '\n'.repeat(process.stdout.rows);
+    console.log(blank);
+    readline.cursorTo(process.stdout, 0, 0);
+    readline.clearScreenDown(process.stdout);
+    console.log(title);
   }
 };

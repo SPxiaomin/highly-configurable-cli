@@ -11,7 +11,6 @@
   },
   "workspaces": [
     "packages/@highly-configurable/*",
-    "packages/test/*",
     "projects/*"
   ],
   "devDependencies": {

@@ -1,22 +1,24 @@
-// #!/usr/bin/env node
+#!/usr/bin/env node
 
-// const program = require('commander');
-// const inquirer = require('inquirer');
+const fs = require('fs');
+const path = require('path');
+const program = require('commander');
 
-// program
-//   .command('create <app-name>')
-//   .description('create a new project powered by highly-configurable-cli-service')
-//   .action((name, cmd) => {
-//     console.log('<=========');
-//     console.log(name, cmd);
-//   });
-
-// program.parse(process.argv);
-
-const { extractCallDir} = require('../util/index');
-
-function render() {
-  console.log(extractCallDir());
+// enter debug mode when creating test repo
+if (process.cwd().indexOf('/packages/test') > 0) {
+  process.env.HIGHLY_CONFIGURABLE_CLI_DEBUG = true;
 }
 
-exports.render = render;
+program
+  .version(`@highly-configurable/cli ${require('../package.json').version}`)
+  .usage('<command> [options]');
+
+program
+  .command('create <app-name>')
+  .description('create a new project powered by highly-configurable-cli-service')
+  .option('-r, --registry <url>', 'Use specified npm registry when installing dependencies')
+  .action((name, cmd) => {
+    require('../create')(name, cmd);
+  });
+
+program.parse(process.argv);
