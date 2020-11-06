@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
 const program = require('commander');
 
 // enter debug mode when creating test repo
 if (process.cwd().indexOf('/packages/test') > 0) {
-  process.env.HIGHLY_CONFIGURABLE_CLI_DEBUG = true;
+  process.env.HIGHLY_CONFIGURABLE_CLI_DEBUG_OR_TEST = true;
 }
 
 program
