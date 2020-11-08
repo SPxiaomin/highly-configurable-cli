@@ -12,6 +12,10 @@ function format(label, msg) {
     .join('\n');
 }
 
+exports.log = (msg = '') => {
+  console.log(msg);
+};
+
 exports.error = (msg) => {
   console.error(format(
     chalk.bgRed(' ERROR '),
