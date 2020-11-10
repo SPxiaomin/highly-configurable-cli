@@ -7,6 +7,8 @@ const {
 } = require('@highly-configurable/cli-shared-utils');
 const getVersions = require('./util/getVersions');
 const writeFileTree = require('./util/writeFileTree');
+const Templator = require('./Templator');
+const path = require('path');
 
 module.exports = class Creator {
   constructor(name, context) {
@@ -61,7 +63,21 @@ module.exports = class Creator {
      * template
      */
     log(`🚀 Writing templates...`);
+    const templator = new Templator(context, {
+      templatePath: path.resolve(__dirname, './template'),
+      renderData: {},
+    });
+    await templator.render();
 
+    // log instructions
+    log();
+    log(`🎉  Successfully created project ${chalk.yellow(name)}.`);
+    log(
+      `👉  Get started with the following commands:\n\n` +
+      chalk.cyan(` ${chalk.gray('$')} cd ${name}\n`) +
+      chalk.cyan(` ${chalk.gray('$')} yarn serve`)
+    );
+    log();
   }
 
   run(command, args = []) {

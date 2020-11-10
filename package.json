@@ -17,6 +17,10 @@
     "lerna": "^3.22.0"
   },
   "jest": {
+    "testEnvironment": "node",
+    "setupFiles": [
+      "<rootDir>/scripts/testSetup.js"
+    ],
     "testMatch": [
       "**/__tests__/**/*.test.js"
     ]
