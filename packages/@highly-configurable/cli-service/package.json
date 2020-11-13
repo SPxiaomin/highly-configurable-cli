@@ -13,6 +13,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@highly-configurable/cli-shared-utils": "^1.0.0",
+    "@highly-configurable/cli-test-utils": "^1.0.0",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
