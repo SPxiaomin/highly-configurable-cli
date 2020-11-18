@@ -15,7 +15,20 @@ module.exports = (options) => {
       };
 
       WebpackDevServer.addDevServerEntrypoints(webpackConfig, hotOptions);
-      new WebpackDevServer(webpack(webpackConfig), hotOptions).listen(7000);
+      const compiler = webpack(webpackConfig);
+      const server = new WebpackDevServer(compiler, hotOptions).listen(7000);
+
+      let isFirstCompile = true;
+      compiler.hooks.done.tap('highly-configurable-cli-service serve', () => {
+        if (isFirstCompile) {
+          isFirstCompile = false;
+          return;
+        }
+
+        if (process.env.HIGHLY_CONFIGURABLE_CLI_TEST && !isFirstCompile) {
+          console.log('App updated');
+        }
+      });
     },
   };
 };
