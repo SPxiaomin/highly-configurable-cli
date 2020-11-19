@@ -1,0 +1,18 @@
+{
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+  ],
+  "compilerOptions": {
+    "target": "ESNext",
+    "jsx": "react",
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "noEmit": true
+  }
+}
