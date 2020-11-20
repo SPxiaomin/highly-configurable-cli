@@ -29,7 +29,7 @@ module.exports = function createTestProject(name) {
       command = require.resolve('@highly-configurable/cli-service/bin/highly-configurable-cli-service');
     }
 
-    return execa(command, args, { cwd: projectRoot, stdio: 'inherit' });
+    return execa(command, args, { cwd: projectRoot });
   };
 
   const cliBinPath = require.resolve('@highly-configurable/cli/bin/highly-configurable');

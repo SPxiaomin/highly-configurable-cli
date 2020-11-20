@@ -35,7 +35,7 @@ module.exports = async function serveWithPuppeteer(serve, test) {
      * 3. hot reload.
      */
     let isFirstMatch = true;
-    childProcess.stdout.on('data', (data) => {
+    childProcess.stdout.on('data', async (data) => {
       data = data.toString();
 
       const urlMatch = data.match(/http:\/\/[^/]+\//);

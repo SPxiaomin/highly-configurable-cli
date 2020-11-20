@@ -7,6 +7,7 @@
   "author": "gujunmin <gujunmin@bytedance.com>",
   "license": "MIT",
   "scripts": {
+    "pretest": "rm -rf packages/test/**",
     "test": "node scripts/test.js"
   },
   "workspaces": [
