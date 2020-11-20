@@ -10,7 +10,7 @@ module.exports = (webpackConfig, service) => {
   webpackConfig
     .context(service.context)
     .entry('app')
-      .add('./src/main.js')
+      .add('./src/main.tsx')
       .end()
     .output
       .filename('[name].[hash].js')
@@ -27,7 +27,7 @@ module.exports = (webpackConfig, service) => {
   webpackConfig
     .plugin('html')
     .use(HtmlWebpackPlugin, [{
-      filename: 'app.html',
+      filename: 'index.html',
       template: path.resolve(service.context, './public/index.html'),
     }]);
 

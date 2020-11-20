@@ -113,7 +113,9 @@ module.exports = class Service {
     }
 
     // user custom config overwrite
-    this.projectOptions.chainWebpack(chainableConfig);
+    if (this.projectOptions && this.projectOptions.chainWebpack) {
+      this.projectOptions.chainWebpack(chainableConfig);
+    }
 
     return chainableConfig.toConfig();
   }

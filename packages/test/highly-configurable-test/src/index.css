@@ -1,9 +1,0 @@
-.title {
-  color: red;
-  display: flex;
-  flex-direction: row;
-
-  .bbb {
-    color: blue;
-  }
-}

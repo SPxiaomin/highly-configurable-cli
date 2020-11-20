@@ -9,6 +9,7 @@ const getVersions = require('./util/getVersions');
 const writeFileTree = require('./util/writeFileTree');
 const Templator = require('./Templator');
 const path = require('path');
+const fs = require('fs-extra');
 
 module.exports = class Creator {
   constructor(name, context) {
@@ -43,6 +44,12 @@ module.exports = class Creator {
       name,
       version: '0.1.0',
       private: true,
+      scripts: {
+        prebuild: 'rm -rf dist',
+        serve: 'highly-configurable-cli-service serve',
+        build: 'highly-configurable-cli-service build',
+        inspect: 'highly-configurable-cli-service inspect'
+      },
       devDependencies: {
         '@highly-configurable/cli-service': `^${latestMinor}`,
       },
@@ -55,7 +62,12 @@ module.exports = class Creator {
     log(`⚙\u{fe0f}  Installing CLI depencies. This might take a while...`);
     log();
 
-    if (!process.HIGHLY_CONFIGURABLE_CLI_DEBUG_OR_TEST) {
+    if (process.env.HIGHLY_CONFIGURABLE_CLI_DEBUG_OR_TEST) {
+      const target = path.resolve(context, 'node_modules/.bin/highly-configurable-cli-service');
+      await fs.ensureDir(path.dirname(target));
+      await fs.symlink(require.resolve('@highly-configurable/cli-service/bin/highly-configurable-cli-service'), target);
+      await fs.chmod(target, '755');
+    } else {
       await this.run('yarn');
     }
 

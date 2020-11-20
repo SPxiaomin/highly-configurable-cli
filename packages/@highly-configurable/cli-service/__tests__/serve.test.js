@@ -7,7 +7,7 @@ test('serve', async () => {
   const project = await create('e2e-serve');
 
   await serve(
-    () => project.run('highly-configurable-cli-service serve'),
+    () => project.run('highly-configurable-cli-service', ['serve']),
     async ({ page, nextUpdate, helpers }) => {
       const msg = 'Welcome to Your App';
       expect(await helpers.getText('h1')).toMatch(msg);

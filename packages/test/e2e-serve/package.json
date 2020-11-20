@@ -1,0 +1,14 @@
+{
+  "name": "e2e-serve",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "serve": "highly-configurable-cli-service serve",
+    "build": "highly-configurable-cli-service build",
+    "inspect": "highly-configurable-cli-service inspect"
+  },
+  "devDependencies": {
+    "@highly-configurable/cli-service": "^1.0.0"
+  }
+}
