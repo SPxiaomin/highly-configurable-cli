@@ -21,6 +21,11 @@ module.exports = (options) => {
               chunkModules: false,
           })}\n`,
         );
+
+        // test-only signal
+        if (process.env.VUE_CLI_TEST) {
+          console.log('Build complete.')
+        }
       });
     },
   };

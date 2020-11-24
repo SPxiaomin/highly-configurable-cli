@@ -29,6 +29,7 @@
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.11.0",
     "minimist": "^1.2.5",
+    "portfinder": "^1.0.28",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
     "react": "^17.0.1",
