@@ -33,6 +33,6 @@ module.exports = (webpackConfig, service) => {
   webpackConfig
     .plugin('mini-css-extract-plugin')
     .use(require('mini-css-extract-plugin'), [{
-      filename: '[name].[hash].css',
+      filename: 'css/[name].[hash].css',
     }]);
 };

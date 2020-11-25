@@ -13,7 +13,7 @@ module.exports = (webpackConfig, service) => {
       .add('./src/main.tsx')
       .end()
     .output
-      .filename('[name].[hash].js')
+      .filename('js/[name].[hash].js')
       .path(path.resolve(service.context, './dist'))
       .end();
 

@@ -23,7 +23,7 @@ module.exports = (options) => {
         );
 
         // test-only signal
-        if (process.env.VUE_CLI_TEST) {
+        if (process.env.HIGHLY_CONFIGURABLE_CLI_TEST) {
           console.log('Build complete.')
         }
       });
