@@ -16,3 +16,5 @@ yarn
 ../@highly-configurable/cli/bin/highly-configurable.js create xxx
 yarn serve
 ```
+
+test
