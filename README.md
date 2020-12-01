@@ -1,6 +1,6 @@
 # highly-configurable-cli
 
-[![Build Status](https://travis-ci.org/SPxiaomin/highly-configurable-cli.svg?branch=master)](https://travis-ci.org/SPxiaomin/highly-configurable-cli)
+[![Build Status](https://travis-ci.com/SPxiaomin/highly-configurable-cli.svg?branch=master)](https://travis-ci.com/SPxiaomin/highly-configurable-cli)
 
 ## Workflow
 
