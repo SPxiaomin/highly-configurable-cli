@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "main": "index.js",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "highly-configurable-cli-service": "bin/highly-configurable-cli-service.js"
   },
