@@ -1,6 +1,6 @@
 {
   "name": "@highly-configurable/cli-service",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
@@ -15,8 +15,8 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@highly-configurable/cli-shared-utils": "^0.7.0",
-    "@highly-configurable/cli-test-utils": "^0.7.0",
+    "@highly-configurable/cli-shared-utils": "^0.8.0",
+    "@highly-configurable/cli-test-utils": "^0.8.0",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
