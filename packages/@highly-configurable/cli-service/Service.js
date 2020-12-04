@@ -120,3 +120,4 @@ module.exports = class Service {
     return chainableConfig.toConfig();
   }
 }
+
