@@ -8,14 +8,18 @@
   "license": "MIT",
   "scripts": {
     "pretest": "rm -rf packages/test/**",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "changelog2": "lerna-changelog"
   },
   "workspaces": [
     "packages/@highly-configurable/*",
     "projects/*"
   ],
   "devDependencies": {
-    "lerna": "^3.22.0"
+    "conventional-changelog-cli": "^2.1.1",
+    "lerna": "^3.22.0",
+    "lerna-changelog": "^1.0.1"
   },
   "jest": {
     "testEnvironment": "node",
