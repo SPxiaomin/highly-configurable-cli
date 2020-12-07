@@ -2,24 +2,23 @@ const fs = require('fs')
 const path = require('path')
 const execa = require('execa')
 
-async function genNewRelease () {
-  const nextVersion = require('../lerna.json').version
+async function genNewRelease (nextVersion) {
   const { stdout } = await execa(require.resolve('lerna-changelog/bin/cli'), [
-    // '--next-version',
-    // nextVersion
-  ])
-  return stdout
+    '--next-version',
+    nextVersion,
+  ]);
+  return stdout;
 }
 
-const gen = (module.exports = async () => {
-  const newRelease = await genNewRelease()
+const gen = (module.exports = async (nextVersion) => {
+  const newRelease = await genNewRelease(nextVersion)
   const changelogPath = path.resolve(__dirname, '../CHANGELOG.md')
 
   const newChangelog =
     newRelease + '\n\n\n' + fs.readFileSync(changelogPath, { encoding: 'utf8' })
   fs.writeFileSync(changelogPath, newChangelog)
 
-  delete process.env.PREFIX
+  await execa('git', ['add', 'CHANGELOG.md'], { stdio: 'inherit' });
 })
 
 if (require.main === module) {
