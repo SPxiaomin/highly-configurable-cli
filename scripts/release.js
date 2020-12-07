@@ -48,7 +48,7 @@ const release = async () => {
 
   await genChangelog(version);
 
-  await execa(require('lerna/cli'), [
+  await execa(require.resolve('lerna/cli'), [
     'publish',
     version,
     '--force-publish',
