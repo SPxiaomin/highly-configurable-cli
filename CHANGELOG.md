@@ -1,4 +1,14 @@
 
+## 0.9.0 (2020-12-07)
+
+#### :rocket: Enhancement
+* [#8](https://github.com/SPxiaomin/highly-configurable-cli/pull/8) feat: release function test ([@SPxiaomin](https://github.com/SPxiaomin))
+
+#### Committers: 1
+- [@SPxiaomin](https://github.com/SPxiaomin)
+
+
+
 ## 0.8.0 (2020-12-04)
 
 #### :rocket: Enhancement
