@@ -9,5 +9,8 @@ cache:
 
 node_js: stable
 
+install:
+  - yarn install
+
 script:
-  - echo 'haha'
+  - yarn test
