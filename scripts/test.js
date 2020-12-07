@@ -12,6 +12,7 @@ if (args.p) {
 
 const jestArgs = [
   '--env', 'node',
+  '--detectOpenHandles',
   '--runInBand',
   ...rawArgs,
   ...(regexp ? [regexp] : [])
