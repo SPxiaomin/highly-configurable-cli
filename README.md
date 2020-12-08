@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.com/SPxiaomin/highly-configurable-cli.svg?branch=master)](https://travis-ci.com/SPxiaomin/highly-configurable-cli)
 
+## Architecture
+
+![architecture](./architecture.png)
+
 ## Workflow
 
 新功能从master切分支开发，开发完成pull request.
