@@ -2,7 +2,7 @@
  * @description prod related
  */
 
-module.exports = (webpackConfig, service) => {
+module.exports = (webpackConfig, service) => { // eslint-disable-line no-unused-vars
   webpackConfig.mode('production');
 
   webpackConfig.devtool('source-map');
@@ -14,21 +14,21 @@ module.exports = (webpackConfig, service) => {
       return [{
         ...args[0],
         async: false,
-      }]
+      }];
     });
 
   // css extract loader & plugin
   webpackConfig.module
     .rule('css')
-      .uses
-      .delete('style-loader');
+    .uses
+    .delete('style-loader');
 
   webpackConfig.module
     .rule('mini-css-extract-plugin-loader')
-      .test(/\.css$/)
-      .post()
-      .use('mini-css-extract-plugin-loader')
-        .loader(require('mini-css-extract-plugin').loader);
+    .test(/\.css$/)
+    .post()
+    .use('mini-css-extract-plugin-loader')
+    .loader(require('mini-css-extract-plugin').loader);
 
   webpackConfig
     .plugin('mini-css-extract-plugin')

@@ -7,7 +7,7 @@ function format(label, msg) {
     .map((line, index) => {
       return index == 0
         ? `${label} ${line}`
-        : line
+        : line;
     })
     .join('\n');
 }

@@ -33,5 +33,5 @@ module.exports = async function getVersions() {
     latest,
     latestMinor,
   };
-}
+};
 

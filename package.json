@@ -10,7 +10,9 @@
     "pretest": "rm -rf packages/test/**",
     "test": "node scripts/test.js",
     "changelog": "node scripts/genChangelog.js",
-    "release": "node scripts/release.js"
+    "release": "node scripts/release.js",
+    "lint": "eslint .",
+    "lintfix": "eslint . --fix"
   },
   "workspaces": [
     "packages/@highly-configurable/*",
@@ -18,6 +20,7 @@
   ],
   "devDependencies": {
     "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^7.15.0",
     "execa": "^5.0.0",
     "inquirer": "^7.3.3",
     "lerna": "^3.22.0",

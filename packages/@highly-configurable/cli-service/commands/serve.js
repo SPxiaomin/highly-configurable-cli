@@ -1,4 +1,4 @@
-module.exports = (options) => {
+module.exports = (options) => { // eslint-disable-line no-unused-vars
   return {
     name: 'serve',
     help: {},
@@ -16,7 +16,7 @@ module.exports = (options) => {
 
       WebpackDevServer.addDevServerEntrypoints(webpackConfig, hotOptions);
       const compiler = webpack(webpackConfig);
-      const server = new WebpackDevServer(compiler, hotOptions).listen(7000);
+      const server = new WebpackDevServer(compiler, hotOptions).listen(7000); // eslint-disable-line no-unused-vars
 
       let isFirstCompile = true;
       compiler.hooks.done.tap('highly-configurable-cli-service serve', () => {

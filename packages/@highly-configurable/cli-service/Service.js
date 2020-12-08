@@ -4,7 +4,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const Module = require('module');
+// const Module = require('module');
 const { validate, error, chalk } = require('@highly-configurable/cli-shared-utils');
 const debug = require('debug');
 const Config = require('webpack-chain');
@@ -103,13 +103,13 @@ module.exports = class Service {
 
     // env related config overwrite
     switch (process.env.NODE_ENV) {
-      case 'development':
-        require('./config/dev.js')(chainableConfig, this);
-        break;
+    case 'development':
+      require('./config/dev.js')(chainableConfig, this);
+      break;
 
-      case 'production':
-        require('./config/prod.js')(chainableConfig, this);
-        break;
+    case 'production':
+      require('./config/prod.js')(chainableConfig, this);
+      break;
     }
 
     // user custom config overwrite
@@ -119,5 +119,5 @@ module.exports = class Service {
 
     return chainableConfig.toConfig();
   }
-}
+};
 

@@ -1,6 +1,6 @@
 const path = require('path');
 const validateProjectName = require('validate-npm-package-name');
-const { chalk, error } = require('@highly-configurable/cli-shared-utils')
+const { chalk, error } = require('@highly-configurable/cli-shared-utils');
 const Creator = require('./Creator');
 
 async function create(projectName, options) {

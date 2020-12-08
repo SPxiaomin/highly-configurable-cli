@@ -49,4 +49,4 @@ module.exports = class Templator {
       writeFileTree(this.context, this.files);
     });
   }
-}
+};

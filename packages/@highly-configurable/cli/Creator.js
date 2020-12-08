@@ -17,7 +17,7 @@ module.exports = class Creator {
     this.context = context;
   }
 
-  async create(options) {
+  async create(options) { // eslint-disable-line no-unused-vars
     const {
       name,
       context,
@@ -35,7 +35,7 @@ module.exports = class Creator {
       title += ' ' + chalk.magenta.bold('DEBUG');
     }
     clearConsole(title);
-    log(`✨  Creating project in ${chalk.yellow(context)}.`)
+    log(`✨  Creating project in ${chalk.yellow(context)}.`);
 
     /**
      * devDependencies
@@ -59,7 +59,7 @@ module.exports = class Creator {
       'package.json': JSON.stringify(pkg, null, 2),
     });
 
-    log(`⚙\u{fe0f}  Installing CLI depencies. This might take a while...`);
+    log('⚙\u{fe0f}  Installing CLI depencies. This might take a while...');
     log();
 
     if (process.env.HIGHLY_CONFIGURABLE_CLI_DEBUG_OR_TEST) {
@@ -74,7 +74,7 @@ module.exports = class Creator {
     /**
      * template
      */
-    log(`🚀 Writing templates...`);
+    log('🚀 Writing templates...');
     const templator = new Templator(context, {
       templatePath: path.resolve(__dirname, './template'),
       renderData: {},
@@ -85,7 +85,7 @@ module.exports = class Creator {
     log();
     log(`🎉  Successfully created project ${chalk.yellow(name)}.`);
     log(
-      `👉  Get started with the following commands:\n\n` +
+      '👉  Get started with the following commands:\n\n' +
       chalk.cyan(` ${chalk.gray('$')} cd ${name}\n`) +
       chalk.cyan(` ${chalk.gray('$')} yarn serve`)
     );
@@ -98,5 +98,5 @@ module.exports = class Creator {
       stdio: 'inherit',
     });
   }
-}
+};
 

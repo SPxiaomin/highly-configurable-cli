@@ -24,12 +24,12 @@ afterEach(() => {
 });
 
 test('env setting through args', () => {
-  const service = createMockService(true, 'serve', { mode: 'production' });
+  const service = createMockService(true, 'serve', { mode: 'production' }); // eslint-disable-line no-unused-vars
   expect(process.env.NODE_ENV).toBe('production');
 });
 
 test('env setting through command', () => {
-  const service = createMockService(true, 'serve', {});
+  const service = createMockService(true, 'serve', {}); // eslint-disable-line no-unused-vars
   expect(process.env.NODE_ENV).toBe('development');
 });
 

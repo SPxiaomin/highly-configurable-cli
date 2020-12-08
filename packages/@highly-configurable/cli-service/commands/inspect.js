@@ -1,4 +1,4 @@
-module.exports = (options) => {
+module.exports = (options) => { // eslint-disable-line no-unused-vars
   return {
     name: 'inspect',
     help: {},
